@@ -29,7 +29,7 @@
         }
 
         .container {
-            position: absolute; /* Para centralizar no meio da tela */
+            position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%); /* Centraliza vertical e horizontalmente */
@@ -80,24 +80,57 @@
         .console p {
             margin: 0; /* Remove margens dos parágrafos dentro do console */
         }
+
+        /* Responsividade - ajusta o layout para telas menores */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2em; /* Reduz o tamanho do título */
+            }
+            p {
+                font-size: 1em; /* Reduz o tamanho do texto */
+            }
+            img {
+                width: 200px; /* Reduz o tamanho da imagem */
+            }
+            .console {
+                font-size: 0.8em; /* Reduz o tamanho do texto no console */
+                width: 90%; /* Ajusta a largura do console */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em; /* Reduz ainda mais o título para telas pequenas */
+            }
+            p {
+                font-size: 0.9em; /* Reduz o texto para melhor visualização */
+            }
+            img {
+                width: 150px; /* Tamanho menor da imagem */
+            }
+            .console {
+                font-size: 0.7em; /* Tamanho menor do console */
+                width: 95%; /* Ajusta a largura */
+            }
+        }
     </style>
 </head>
 <body>
     <div class="image-container">
-        <img src="test.jpg.jpg" alt="Descrição da imagem"> <!-- Substitua pelo link da sua imagem -->
+        <img src="sua-imagem-aqui.png" alt="Descrição da imagem"> <!-- Substitua pelo link da sua imagem -->
     </div>
 
     <div class="container">
         <h1>Aviso: Sistema Invadido!</h1>
-        <p>“A liberdade não é dada, ela é conquistada.”</p>
+        <p>Liberdade é conquistada... você está preparado para o próximo passo?</p>
     </div>
 
     <!-- Adicionando um console simulado -->
     <div class="console">
         <p>Iniciando conexão...</p>
-        <p>Conexão estabelecida com o servidor. OK</p>
+        <p>Conexão estabelecida com o servidor.</p>
         <p>Buscando informações...</p>
-        <p>Dados encontrados: [Eduardo Vieira Teles]!</p>
+        <p>Dados encontrados: [EDUARDO VIEIRA TELES]!</p>
         <p>ATENÇÃO: Sistema em risco!</p>
     </div>
 
