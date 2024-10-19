@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem Secreta</title>
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden; /* Impede a barra de rolagem */
+            position: relative; /* Para posicionamento dos caracteres */
+            height: 100vh; /* Altura total da tela */
+        }
+
+        .rain {
+            position: absolute;
+            white-space: nowrap; /* Mantém os caracteres em uma única linha */
+            font-size: 20px; /* Ajuste o tamanho conforme necessário */
+            opacity: 0.8;
+            animation: fall linear infinite; /* Animação de queda */
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh); /* Desce a altura total da tela */
+            }
+        }
+
+        .container {
+            position: absolute; /* Para centralizar no meio da tela */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centraliza vertical e horizontalmente */
+            z-index: 1; /* Garante que o texto fique acima da chuva de código */
+            text-align: center; /* Centraliza o texto */
+            color: #00ff00; /* Cor do texto */
+        }
+
+        h1 {
+            font-size: 3em; /* Tamanho do título */
+            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Efeito de brilho no título */
+        }
+
+        p {
+            font-size: 1.5em; /* Tamanho do parágrafo */
+            margin-top: 20px; /* Espaçamento entre os elementos */
+        }
+
+        /* Estilo da imagem */
+        .image-container {
+            position: absolute;
+            top: 10px; /* Posição no topo */
+            left: 50%;
+            transform: translateX(-50%); /* Centraliza horizontalmente */
+            z-index: 0; /* Garante que a imagem fique atrás do texto */
+        }
+
+        img {
+            width: 300px; /* Ajuste o tamanho da imagem conforme necessário */
+            opacity: 0.5; /* Transparência para efeito visual */
+        }
+
+        /* Estilo do console */
+        .console {
+            position: absolute;
+            bottom: 20px; /* Posição na parte inferior */
+            left: 50%;
+            transform: translateX(-50%); /* Centraliza horizontalmente */
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+            border: 2px solid #00ff00; /* Borda verde */
+            padding: 10px; /* Espaçamento interno */
+            color: #00ff00; /* Cor do texto */
+            font-size: 1em; /* Tamanho do texto */
+            width: 80%; /* Largura do console */
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Sombra para efeito 3D */
+        }
+
+        .console p {
+            margin: 0; /* Remove margens dos parágrafos dentro do console */
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="test.jpg.jpg" alt="Descrição da imagem"> <!-- Substitua pelo link da sua imagem -->
+    </div>
+
+    <div class="container">
+        <h1>Aviso: Sistema Invadido!</h1>
+        <p>“A liberdade não é dada, ela é conquistada.
+            Prepare-se para o inesperado.
+            Siga o caminho... se tiver coragem.”</p>
+    </div>
+
+    <!-- Adicionando um console simulado -->
+    <div class="console">
+        <p>Iniciando conexão...</p>
+        <p>Conexão estabelecida com o servidor. OK</p>
+        <p>Buscando informações...</p>
+        <p>Dados encontrados: [Eduardo Vieira Teles]!</p>
+        <p>ATENÇÃO: Sistema em risco!</p>
+    </div>
+
+    <script>
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; // Caracteres da chuva
+        const rainDensity = 100; // Densidade da chuva
+
+        for (let i = 0; i < rainDensity; i++) {
+            const span = document.createElement('span'); // Cria um elemento span
+            const randomCharacter = characters.charAt(Math.floor(Math.random() * characters.length)); // Escolhe um caractere aleatório
+            span.textContent = randomCharacter; // Define o texto do span
+            span.classList.add('rain'); // Adiciona a classe rain
+
+            // Posição aleatória
+            span.style.left = Math.random() * window.innerWidth + 'px';
+            span.style.animationDuration = Math.random() * 2 + 3 + 's'; // Duração aleatória para a queda
+
+            document.body.appendChild(span); // Adiciona o span ao corpo da página
+        }
+    </script>
+</body>
+</html>
